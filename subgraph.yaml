@@ -1,0 +1,88 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: AiCooHub
+    network: mainnet
+    source:
+      abi: AiCooHub
+      address: "0x365b22497C5099781CbCEeC48d0F92Fd76C90788"
+      startBlock: 845610
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AiCooRoyaltyDataSet
+        - BaseInitialized
+        - BurnNFTFromCollection
+        - CollectionFeeAddressSet
+        - CreateCollectionFeeSet
+        - DerivedNFTInitialized
+        - DerivedRuleModuleWhitelisted
+        - EmergencyAdminSet
+        - FeeModuleBaseConstructed
+        - GovernanceSet
+        - MaxRoyaltySet
+        - ModuleBaseConstructed
+        - ModuleGlobalsCurrencyWhitelisted
+        - ModuleGlobalsGovernanceSet
+        - ModuleGlobalsTreasuryFeeSet
+        - ModuleGlobalsTreasurySet
+        - NewCollectionCreated
+        - NewCollectionMintInfo
+        - NewNFTCreated
+        - StateSet
+      abis:
+        - name: AiCooHub
+          file: ./abis/AiCooHub.json
+      eventHandlers:
+        - event: AiCooRoyaltyDataSet(indexed address,indexed address,indexed
+            uint32,uint256)
+          handler: handleAiCooRoyaltyDataSet
+        - event: BaseInitialized(string,string,uint256)
+          handler: handleBaseInitialized
+        - event: BurnNFTFromCollection(uint256,uint256,address,address,uint256)
+          handler: handleBurnNFTFromCollection
+        - event: CollectionFeeAddressSet(indexed address,indexed address,indexed
+            address,uint256)
+          handler: handleCollectionFeeAddressSet
+        - event: CreateCollectionFeeSet(indexed address,indexed uint32,indexed
+            uint32,uint256)
+          handler: handleCreateCollectionFeeSet
+        - event: DerivedNFTInitialized(indexed uint256,uint256)
+          handler: handleDerivedNFTInitialized
+        - event: DerivedRuleModuleWhitelisted(address,bool,uint256)
+          handler: handleDerivedRuleModuleWhitelisted
+        - event: EmergencyAdminSet(indexed address,indexed address,indexed
+            address,uint256)
+          handler: handleEmergencyAdminSet
+        - event: FeeModuleBaseConstructed(indexed address,uint256)
+          handler: handleFeeModuleBaseConstructed
+        - event: GovernanceSet(indexed address,indexed address,indexed address,uint256)
+          handler: handleGovernanceSet
+        - event: MaxRoyaltySet(indexed address,indexed uint32,indexed uint32,uint256)
+          handler: handleMaxRoyaltySet
+        - event: ModuleBaseConstructed(indexed address,uint256)
+          handler: handleModuleBaseConstructed
+        - event:
+            ModuleGlobalsCurrencyWhitelisted(indexed address,indexed bool,indexed
+            bool,uint256)
+          handler: handleModuleGlobalsCurrencyWhitelisted
+        - event: ModuleGlobalsGovernanceSet(indexed address,indexed address,uint256)
+          handler: handleModuleGlobalsGovernanceSet
+        - event: ModuleGlobalsTreasuryFeeSet(indexed uint16,indexed uint16,uint256)
+          handler: handleModuleGlobalsTreasuryFeeSet
+        - event: ModuleGlobalsTreasurySet(indexed address,indexed address,uint256)
+          handler: handleModuleGlobalsTreasurySet
+        - event: NewCollectionCreated(indexed address,indexed
+            uint256,uint256,uint8,address,string,address,uint256)
+          handler: handleNewCollectionCreated
+        - event: NewCollectionMintInfo(uint256,uint256,uint256,uint256,bytes32)
+          handler: handleNewCollectionMintInfo
+        - event: NewNFTCreated(indexed uint256,indexed uint256,uint256,address,string)
+          handler: handleNewNFTCreated
+        - event: StateSet(indexed address,indexed uint8,indexed uint8,uint256)
+          handler: handleStateSet
+      file: ./src/ai-coo-hub.ts

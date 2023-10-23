@@ -1,0 +1,20 @@
+{
+  "jolnir": {
+    "AiCooHub": {
+      "address": "0x365b22497C5099781CbCEeC48d0F92Fd76C90788",
+      "startBlock": 845610
+    }
+  },
+  "sepolia": {
+    "AiCooHub": {
+      "address": "0x062e741B10B80464cDf76452404484BbB166A952",
+      "startBlock": 3984643
+    }
+  },
+  "base-testnet": {
+    "AiCooHub": {
+      "address": "0x2e1F211D853b20C0aa25Ed41af6250A3F678c67D",
+      "startBlock": 8450040
+    }
+  }
+}
